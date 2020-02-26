@@ -7,8 +7,12 @@ import Header from '../components/Header';
 
 class Swapedia extends Component {
     render() { 
+        const style = {
+            textAlign: 'center',
+        }
+
         return (
-            <div className="Swapedia">
+            <div className="Swapedia" style={style}>
                 <Categories />
             </div>
         );

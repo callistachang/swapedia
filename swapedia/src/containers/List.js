@@ -75,6 +75,7 @@ class List extends Component {
                     display = this.state.list.map(listObj => {
                         return (
                             <PersonDisplay
+                                link={this.extractId(listObj.url)}
                                 name={listObj.name}/>
                         )
                     });
@@ -83,31 +84,41 @@ class List extends Component {
                     display = this.state.list.map(listObj => {
                         return (
                             <StarshipDisplay
-                                name={listObj.name}/>
+                            link={this.extractId(listObj.url)}
+                                name={listObj.name}
+                                model={listObj.model}/>
                         )
                     });
                     break
                 case '/vehicles':
                     display = this.state.list.map(listObj => {
                         return (
-                            <StarshipDisplay
-                                name={listObj.name}/>
+                            <VehicleDisplay
+                            link={this.extractId(listObj.url)}
+                                name={listObj.name}
+                                model={listObj.model}/>
                         )
-                    });                
+                    });
+                    break               
                 case '/planets':
                     display = this.state.list.map(listObj => {
                         return (
                             <PlanetDisplay
+                            link={this.extractId(listObj.url)}
                                 name={listObj.name}/>
                         )
-                    });                  
+                    });   
+                    break               
                 case '/species':
                     display = this.state.list.map(listObj => {
                         return (
                             <SpecieDisplay
-                                name={listObj.name}/>
+                            link={this.extractId(listObj.url)}
+                                name={listObj.name}
+                                classification={listObj.classification}/>
                         )
                     });
+                    break
             }
         }
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import { Link } from 'react-router-dom';
 
 class FilmDetail extends Component {
     state = {
@@ -16,7 +17,6 @@ class FilmDetail extends Component {
             .then(response => {
                 this.setState({details: response.data});
                 this.setState({isLoaded: true});
-                console.log(this.state.details.title);
             })
             .catch(error => {
                 console.log(error);
@@ -26,10 +26,6 @@ class FilmDetail extends Component {
     extractId = (link) => {
         return link.slice(21);
     }
-
-    // characters = this.state.details.characters.map(link => {
-    //     ;
-    // })
 
     render() {
         let display = null;
@@ -42,12 +38,14 @@ class FilmDetail extends Component {
         } else {
             display = (
                 <div className="col-sm">
-                    <p>Title: {this.state.details.title}</p>
-                    <p>Episode ID: {this.state.details.episode_id}</p>
-                    <p>Opening crawl: {this.state.details.opening_crawl}</p>
-                    <p>Director: {this.state.details.director}</p>
-                    <p>Producer: {this.state.details.producer}</p>
-                    <p>Release date: {this.state.details.release_date}</p>
+                    <p>Name: {this.state.details.name}</p>
+                    <p>Height: {this.state.details.height}cm</p>
+                    <p>Mass: {this.state.details.mass}kg</p>
+                    <p>Hair color: {this.state.details.hair_color}</p>
+                    <p>Skin color: {this.state.details.skin_color}</p>
+                    <p>Eye color: {this.state.details.eye_color}</p>
+                    <p>Birth year: {this.state.details.birth_year}</p>
+                    <p>Gender: {this.state.details.gender}</p>
                 </div>
             )
         }

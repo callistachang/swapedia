@@ -1,16 +1,21 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-const filmDisplay = (props) => {
+const vehicleDisplay = (props) => {
     return (
-        <div className="col-sm-6">
-            <div className="card">
-                <div className="card-body">
-                    <h5 className="card-title">Episode {props.episode_id}: {props.title}</h5>
-                    <p>Release date: {props.release_date}</p>
+            <div className="col-md-3 col-sm-4">
+                        <NavLink to={props.link}>
+
+                <div className="card">
+                    <div className="card-body">
+                        <h5 className="card-title">{props.name}</h5>
+                        <p>Classification: {props.classification}</p>
+                    </div>
                 </div>
+                </NavLink>
+
             </div>
-        </div>
     );
 }
  
-export default filmDisplay;
+export default vehicleDisplay;
